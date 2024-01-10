@@ -98,6 +98,88 @@ class Hangman:
     def __init__(self, name):
        self.name = name
        self.start_game = None
+       self.start_guess = None
+       self.word = ""
+       self.current_guess = ""
+       self.description = ""
+       self.used_letters = []
+
+    def random_word(self):
+        """
+        The function chooses a random word from the list and its description.
+        """
+        self.word = random.choice(list(Hangman.words.keys()))
+        self.current_guess = "_ " * len(self.word)
+        self.description = Hangman.words[self.word]
+        return self.current_guess, self.description
+
+    def check_guess(self):
+        """
+        The function checks if the player guessed right and adds the letter in the word. 
+        If it is a wrong guess or the player guesses the same letter the function informs the player 
+        and gives a chance to guess again.
+        """
+        self.random_word()
+        print(self.description)
+        # local variable to keep track on wrong answers
+        wrong = 0
+        # Loop the function untill the game is over.
+        while wrong < len(self.hangman) - 1 and "_" in self.current_guess:
+            print(self.hangman[wrong])
+            print("You have used the following letters: ", self.used_letters,
+               "\n")
+            print("The word is ", self.current_guess, "\n")
+            guess = input("Please guess a letter:  ").upper()
+
+            # check if the input is a letter. 
+            # The line of the code is taken from https://codereview.stackexchange.com/
+            if not guess.isalpha():
+                print("That is not a letter. Please try again! \n")
+                pass
+            elif len(guess) > 1:
+                print("Please pick one letter!")
+                continue
+
+            # check if the user has already guessed the letter
+            if guess in self.used_letters:
+                print("""
+            _______________________________________________________
+            You've already guessed that letter. Try a different one.
+            -------------------------------------------------------
+            """)
+                continue
+
+            if guess in self.word:
+                # using enumerate method to find the right letter on the right index
+                for word_index, guess_word in enumerate(self.word):
+                    if guess_word == guess:
+                        for letter in self.current_guess:
+                            self.current_guess = (self.current_guess[:word_index * 2] + 
+                            guess_word +self.current_guess[word_index * 2 + 1:])
+
+                #Congradulate the player and continue the game            
+                print("Correct guess! ", self.current_guess, "\n")
+                self.used_letters.append(guess)
+            else:
+                self.used_letters.append(guess)
+                wrong += 1
+                print("Unfortunately you guessed wrong. Pick another letter! \n")
+                continue
+
+        #checking if there are no _, then the player guessed the word
+        if "_" not in self.current_guess:
+            print(
+             """
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             Congratulations! You guessed the word:
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             """, self.word, "\n")
+            self.restart_hangman()
+        else:
+            print(self.hangman[wrong])
+            print("You could not guess the word. The game is over.\n")
+            print("The word was ", self.word, "\n")
+            self.restart_hangman()
 
     def welcome(self):
         """
@@ -123,9 +205,12 @@ class Hangman:
         return self.start_game
 
     def check_welcome_input(self):
+        """
+        The function checks and validates the user input to call functions accordingly.
+        """
         while True:
             if self.start_game == "S":
-                pass
+                self.check_guess()
             elif self.start_game == "I":
                 pass
             elif self.start_game == "E":
