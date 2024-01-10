@@ -97,7 +97,7 @@ class Hangman:
 
     def __init__(self, name):
        self.name = name
-    #    self.start_game = start_game
+       self.start_game = None
 
     def welcome(self):
         """
@@ -119,7 +119,20 @@ class Hangman:
         E to EXIT the game,
         I to read the INSTRUCTIONS: \n
         """).upper()
-        # return self.start_game
+        self.check_welcome_input()
+        return self.start_game
+
+    def check_welcome_input(self):
+        while True:
+            if self.start_game == "S":
+                pass
+            elif self.start_game == "I":
+                pass
+            elif self.start_game == "E":
+                pass
+            else:
+                self.start_guess = input("Please enter a valid value: \n").upper()
+
 
 
 
