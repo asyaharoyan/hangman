@@ -129,6 +129,14 @@ class Hangman:
         self.description = Hangman.words[self.word]
         return self.current_guess, self.description
 
+    def restart_hangman(self):
+        """
+        The function asks if the player wants to guess another word.
+        """
+        self.used_letters = []
+        self.start_guess = input("Do you want to start again?(Y/N) \n").upper()
+        self.check_yes_no()
+
     def check_guess(self):
         """
         The function checks if the player guessed right and adds the letter in the word. 
@@ -220,6 +228,19 @@ class Hangman:
         self.check_welcome_input()
         return self.start_game
 
+    def finish_game(self):
+        """
+        Ending the game if the player does not want to play again.
+        """
+        print("""
+        ----------------------------------------------
+        **********************************************
+        So sad that you have to go, but see you soon!!
+        **********************************************
+        ----------------------------------------------
+        \n
+        """)
+
     def check_welcome_input(self):
         """
         The function checks and validates the user input to call functions accordingly.
@@ -242,7 +263,8 @@ class Hangman:
                 self.check_guess()
                 break
             elif self.start_guess == "N":
-                pass
+                self.finish_game()
+                break
             else:
                 self.start_guess = input("Please enter a valid value: \n").upper()
 
