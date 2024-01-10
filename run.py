@@ -104,6 +104,19 @@ class Hangman:
        self.description = ""
        self.used_letters = []
 
+    def validate_name(self):
+        """
+        The function validates the name input to make sure that it is at least 2 letters.
+        """
+        while True:
+            name = input("Please enter your name: \n")
+            if name.isalpha() and (len(name) > 1 and len(name) < 15):
+                self.name = name.upper()
+                break
+            else:
+                print("Please enter a valid name!")
+                continue
+
     def show_instructions(self):
         """
         Shows the instructions of the game and asks if the player wants to play.
@@ -250,10 +263,11 @@ class Hangman:
                 self.check_guess()
                 break
             elif self.start_game == "I":
-                show_instructions()
+                self.show_instructions()
                 break
             elif self.start_game == "E":
-                pass
+                self.finish_game()
+                break
             else:
                 self.start_guess = input("Please enter a valid value: \n").upper()
 
@@ -268,12 +282,19 @@ class Hangman:
             else:
                 self.start_guess = input("Please enter a valid value: \n").upper()
 
+    def main(self):
+        """
+        Add the functions in one with the right order
+        """
+        self.validate_name()
+        self.welcome()
 
 
 
 
-user1 = Hangman(name = "asya")
-user1.welcome()
+
+user1 = Hangman(name = "")
+user1.main()
 
 
 
