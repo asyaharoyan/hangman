@@ -104,6 +104,22 @@ class Hangman:
        self.description = ""
        self.used_letters = []
 
+    def show_instructions(self):
+        """
+        Shows the instructions of the game and asks if the player wants to play.
+        """
+        print("""
+        The computer is going to choose a random word. 
+        You need to guess the letter. 
+        You have 6 chances to fail. 
+        You can not guess the same letter 2 times. 
+        If you do not guess the word, the man will be hanged :(
+        --------------------------------------------------------
+        """)
+        self.start_guess = input("Do you want to start the game? (Y/N)\n").upper()
+        
+        return self.start_guess
+
     def random_word(self):
         """
         The function chooses a random word from the list and its description.
