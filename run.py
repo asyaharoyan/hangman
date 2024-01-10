@@ -117,7 +117,7 @@ class Hangman:
         --------------------------------------------------------
         """)
         self.start_guess = input("Do you want to start the game? (Y/N)\n").upper()
-        
+        self.check_yes_no()
         return self.start_guess
 
     def random_word(self):
@@ -227,9 +227,21 @@ class Hangman:
         while True:
             if self.start_game == "S":
                 self.check_guess()
+                break
             elif self.start_game == "I":
-                pass
+                show_instructions()
+                break
             elif self.start_game == "E":
+                pass
+            else:
+                self.start_guess = input("Please enter a valid value: \n").upper()
+
+    def check_yes_no(self):
+        while True:
+            if self.start_guess == "Y":
+                self.check_guess()
+                break
+            elif self.start_guess == "N":
                 pass
             else:
                 self.start_guess = input("Please enter a valid value: \n").upper()
