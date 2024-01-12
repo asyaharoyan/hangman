@@ -1,5 +1,9 @@
-# import random to shuffle the words
+# import random to shuffle the words,  colorama for colors
 import random
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset = True) # to reset the colort after each line
+import sys, subprocess
 
 class Hangman:
     words = {
@@ -114,14 +118,14 @@ class Hangman:
                 self.name = name.upper()
                 break
             else:
-                print("Please enter a valid name!")
+                print(Fore.RED + "Please enter a valid name!")
                 continue
 
     def show_instructions(self):
         """
         Shows the instructions of the game and asks if the player wants to play.
         """
-        print("""
+        print(Fore.GREEN + """
         The computer is going to choose a random word. 
         You need to guess the letter. 
         You have 6 chances to fail. 
@@ -129,15 +133,16 @@ class Hangman:
         If you do not guess the word, the man will be hanged :(
         --------------------------------------------------------
         """)
-        self.start_guess = input("Do you want to start the game? (Y/N)\n").upper()
+        self.start_guess = input(Fore.YELLOW + "Do you want to start the game? (Y/N)\n").upper()
         self.check_yes_no()
         return self.start_guess
 
     def random_word(self):
         """
-        The function chooses a random word from the list and its description.
+        The function generates a random word from the list and its description.
         """
         self.word = random.choice(list(Hangman.words.keys()))
+        # Show dashes instead of the word. 
         self.current_guess = "_ " * len(self.word)
         self.description = Hangman.words[self.word]
         return self.current_guess, self.description
@@ -147,7 +152,8 @@ class Hangman:
         The function asks if the player wants to guess another word.
         """
         self.used_letters = []
-        self.start_guess = input("Do you want to start again?(Y/N) \n").upper()
+        self.start_guess = input(Fore.YELLOW + "Do you want to start again?(Y/N) \n").upper()
+        subprocess.run("cls", shell = True)
         self.check_yes_no()
 
     def check_guess(self):
@@ -166,20 +172,20 @@ class Hangman:
             print("You have used the following letters: ", self.used_letters,
                "\n")
             print("The word is ", self.current_guess, "\n")
-            guess = input("Please guess a letter:  ").upper()
+            guess = input(Fore.BLUE + "Please guess a letter:  ").upper()
 
             # check if the input is a letter. 
             # The line of the code is taken from https://codereview.stackexchange.com/
             if not guess.isalpha():
-                print("That is not a letter. Please try again! \n")
-                pass
+                print(Fore.RED + "That is not a letter. Please try again! \n")
+                continue
             elif len(guess) > 1:
-                print("Please pick one letter!")
+                print(Fore.RED + "Please pick one letter!")
                 continue
 
             # check if the user has already guessed the letter
             if guess in self.used_letters:
-                print("""
+                print(Fore.RED + """
             _______________________________________________________
             You've already guessed that letter. Try a different one.
             -------------------------------------------------------
@@ -195,17 +201,17 @@ class Hangman:
                             guess_word +self.current_guess[word_index * 2 + 1:])
 
                 #Congradulate the player and continue the game            
-                print("Correct guess! ", self.current_guess, "\n")
+                print(Fore.GREEN + "Correct guess! ", self.current_guess, "\n")
                 self.used_letters.append(guess)
             else:
                 self.used_letters.append(guess)
                 wrong += 1
-                print("Unfortunately you guessed wrong. Pick another letter! \n")
+                print(Fore.RED + "Unfortunately you guessed wrong. Pick another letter! \n")
                 continue
 
         #checking if there are no _, then the player guessed the word
         if "_" not in self.current_guess:
-            print(
+            print(Fore.GREEN + 
              """
              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
              Congratulations! You guessed the word:
@@ -214,8 +220,8 @@ class Hangman:
             self.restart_hangman()
         else:
             print(self.hangman[wrong])
-            print("You could not guess the word. The game is over.\n")
-            print("The word was ", self.word, "\n")
+            print(Fore.RED + "You could not guess the word. The game is over.\n")
+            print(Back.CYAN + "The word was ", self.word, "\n")
             self.restart_hangman()
 
     def welcome(self):
@@ -245,7 +251,7 @@ class Hangman:
         """
         Ending the game if the player does not want to play again.
         """
-        print("""
+        print(Fore.CYAN + """
         ----------------------------------------------
         **********************************************
         So sad that you have to go, but see you soon!!
@@ -269,7 +275,9 @@ class Hangman:
                 self.finish_game()
                 break
             else:
-                self.start_guess = input("Please enter a valid value: \n").upper()
+                self.start_guess = input(Fore.RED + "Please enter a valid value: \n").upper()
+                continue
+                
 
     def check_yes_no(self):
         while True:
@@ -280,7 +288,8 @@ class Hangman:
                 self.finish_game()
                 break
             else:
-                self.start_guess = input("Please enter a valid value: \n").upper()
+                self.start_guess = input(Fore.RED + "Please enter a valid value: \n").upper()
+                continue
 
     def main(self):
         """
@@ -288,9 +297,6 @@ class Hangman:
         """
         self.validate_name()
         self.welcome()
-
-
-
 
 
 user1 = Hangman(name = "")
