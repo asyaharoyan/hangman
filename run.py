@@ -2,6 +2,7 @@
 import random
 import colorama
 from colorama import Fore, Back, Style
+# how to use the library is taken from https://www.youtube.com/watch?v=u51Zjlnui4Y
 colorama.init(autoreset = True) # to reset the colort after each line
 import sys, subprocess
 
@@ -153,7 +154,6 @@ class Hangman:
         """
         self.used_letters = []
         self.start_guess = input(Fore.YELLOW + "Do you want to start again?(Y/N) \n").upper()
-        subprocess.run("cls", shell = True)
         self.check_yes_no()
 
     def check_guess(self):
@@ -163,7 +163,7 @@ class Hangman:
         and gives a chance to guess again.
         """
         self.random_word()
-        print(self.description)
+        print(Fore.CYAN + self.description)
         # local variable to keep track on wrong answers
         wrong = 0
         # Loop the function untill the game is over.
@@ -173,6 +173,7 @@ class Hangman:
                "\n")
             print("The word is ", self.current_guess, "\n")
             guess = input(Fore.BLUE + "Please guess a letter:  ").upper()
+            
 
             # check if the input is a letter. 
             # The line of the code is taken from https://codereview.stackexchange.com/
@@ -275,7 +276,7 @@ class Hangman:
                 self.finish_game()
                 break
             else:
-                self.start_guess = input(Fore.RED + "Please enter a valid value: \n").upper()
+                self.start_game = input(Fore.RED + "Please enter a valid value: \n").upper()
                 continue
                 
 
