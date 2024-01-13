@@ -32,7 +32,31 @@ class Hangman:
     "LOOP": "A programming construct that repeats a group of statements",
     "CLASS": "A blueprint for creating objects",
     "OBJECT": "An instance of a class in object-oriented programming",
-    "METHOD": "A function associated with an object in object-oriented programming"
+    "METHOD": "A function associated with an object in object-oriented programming",
+    "SCRUM": "An agile process framework for managing complex knowledge work, with an initial emphasis on software development.",
+    "REFACTORING": "The process of restructuring existing computer code without changing its external behavior.",
+    "DOCKER": "A platform for developing, shipping, and running applications in containers.",
+    "INHERITANCE": "A mechanism in object-oriented programming where a class inherits properties and behaviors from another class.",
+    "POLYMORPHISM": "The ability of a class to take on multiple forms, allowing objects to be treated as instances of their parent class.",
+    "ENCAPSULATION": "The bundling of data and methods that operate on the data into a single unit, known as a class.",
+    "ABSTRACTION": "The process of hiding complex implementation details and showing only the essential features of an object.",
+    "INTERFACE": "A contract that defines a set of methods that a class must implement, promoting code reusability.",
+    "MODULE": "A self-contained unit of code that encapsulates functionality and can be reused in different parts of a program.",
+    "LIBRARY": "A collection of pre-written code that can be reused and shared across multiple projects.",
+    "FRAMEWORK": "A set of pre-defined rules and guidelines that provide a structure for developing software applications.",
+    "TESTING": "The process of evaluating a system or its components to ensure that it meets specified requirements.",
+    "INTEGRATION TEST": "Testing the combination of components or systems to verify that they function together as intended.",
+    "DATABASE": "A structured collection of data that can be easily accessed, managed, and updated.",
+    "NOSQL": "A type of database that does not rely on a traditional relational database management system.",
+    "SERVER": "A computer or system that is responsible for managing network resources and providing services to other computers.",
+    "CLIENT": "A computer program or device that requests services or resources from a server.",
+    "GITHUB": "A web-based platform for version control using Git, facilitating collaborative software development.",
+    "DEVOPS": "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle.",
+    "MICROSERVICES": "An architectural style that structures an application as a collection of small, independent services.",
+    "CONTAINERIZATION": "The encapsulation of an application and its dependencies into a container for consistent deployment.",
+    "CLOUD COMPUTING": "The delivery of computing services, including storage, processing power, and more, over the internet.",
+    "ALGORITHM": "A step-by-step procedure or formula for solving a problem or accomplishing a task in programming.",
+    "CRYPTOGRAPHY": "The practice and study of techniques for secure communication in the presence of third parties."
 }
 
     # the hangman picture
