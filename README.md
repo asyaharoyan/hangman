@@ -1,32 +1,20 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# HANGMAN FOR PROGRAMMERS
 
-Welcome,
+Hangman for programmers is a terminal game done by using Python.
+The player has 6 attempts to guess the word. With each word there is a shoer introduction to help the player to guess the right letters.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Here is the live version of the game: 
+[HANGMAN FOR PROGRAMMERS](https://hangman-for-programmers-1e8bf1b491a5.herokuapp.com/)
 
-## Reminders
+![Screenshot of the game](media/hangman.png)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## How to play
 
-## Creating the Heroku app
+Hangman for programmers is a game based on the classic hangman game. 
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+The words are programming related. Each word has a short description to help the player to guess. 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+The player has 6 attempts to fail. If they don't guess the word, the man is being hanged.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+## Features
+### Existing Features

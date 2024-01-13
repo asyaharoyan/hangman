@@ -231,15 +231,15 @@ class Hangman:
                             self.current_guess = (self.current_guess[:word_index * 2] + 
                             guess_word +self.current_guess[word_index * 2 + 1:])
 
-                #Congradulate the player and continue the game            
+                #Congradulate the player and continue the game 
+                # self.description = Hangman.words[self.word]           
                 print(Fore.GREEN + "Correct guess! ", self.current_guess, "\n")
-                self.description = Hangman.words[self.word]
                 self.used_letters.append(guess)
             else:
                 self.used_letters.append(guess)
                 wrong += 1
+                # self.description = Hangman.words[self.word]
                 print(Fore.RED + "Unfortunately you guessed wrong. Pick another letter! \n")
-                self.description = Hangman.words[self.word]
                 continue
 
         #checking if there are no _, then the player guessed the word
@@ -262,10 +262,10 @@ class Hangman:
         The start of the game. Welcomes the player and asks if they want to read instryctions.
         """
         print(f"""
-        ******************************
-        Welcome to HANGMAN {self.name}.
-        ******************************
-        ------------------------------
+        ************************************************
+        Welcome to HANGMAN FOR PROGRAMMERS {self.name}.
+        ************************************************
+        ------------------------------------------------
         """)
         self.start_game = input("""
         ///////////////////////////////////////////////////////////////////
