@@ -142,12 +142,15 @@ class Hangman:
         The function validates the name input to make sure that it is at least 2 letters.
         """
         while True:
-            name = input("Please enter your name: \n")
+            name = input("Please enter your name (Minimum 2 letters): \n")
             if name.isalpha() and (len(name) > 1 and len(name) < 15):
                 self.name = name.upper()
                 break
+            elif not name.isalpha():
+                print(Fore.RED + "The name should include only letters!")
+                continue
             else:
-                print(Fore.RED + "Please enter a valid name!")
+                print(Fore.RED + "The name should include minimum 2 letters!")
                 continue
 
     def show_instructions(self):
@@ -230,11 +233,13 @@ class Hangman:
 
                 #Congradulate the player and continue the game            
                 print(Fore.GREEN + "Correct guess! ", self.current_guess, "\n")
+                self.description = Hangman.words[self.word]
                 self.used_letters.append(guess)
             else:
                 self.used_letters.append(guess)
                 wrong += 1
                 print(Fore.RED + "Unfortunately you guessed wrong. Pick another letter! \n")
+                self.description = Hangman.words[self.word]
                 continue
 
         #checking if there are no _, then the player guessed the word
@@ -307,7 +312,11 @@ class Hangman:
                 break
             else:
                 self.clear()
-                self.start_game = input(Fore.RED + "Please enter a valid value: \n").upper()
+                self.start_game = input(Fore.RED + 
+                """Please enter a valid value!
+                S to START
+                I to read the instructions
+                E to exit the game \n""").upper()
                 continue
                 
 
@@ -323,7 +332,10 @@ class Hangman:
                 break
             else:
                 self.clear()
-                self.start_guess = input(Fore.RED + "Please enter a valid value: \n").upper()
+                self.start_guess = input(Fore.RED + 
+                """Please enter a valid value!
+                Y for YES
+                N for NO \n""").upper()
                 continue
 
     def main(self):
