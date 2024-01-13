@@ -1,10 +1,11 @@
 # import random to shuffle the words,  colorama for colors
 import random
+import os
 import colorama
 from colorama import Fore, Back, Style
 # how to use the library is taken from https://www.youtube.com/watch?v=u51Zjlnui4Y
 colorama.init(autoreset = True) # to reset the colort after each line
-import sys, subprocess
+
 
 class Hangman:
     words = {
@@ -109,6 +110,9 @@ class Hangman:
        self.description = ""
        self.used_letters = []
 
+    def clear(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+
     def validate_name(self):
         """
         The function validates the name input to make sure that it is at least 2 letters.
@@ -173,8 +177,7 @@ class Hangman:
                "\n")
             print("The word is ", self.current_guess, "\n")
             guess = input(Fore.BLUE + "Please guess a letter:  ").upper()
-            
-
+            self.clear()
             # check if the input is a letter. 
             # The line of the code is taken from https://codereview.stackexchange.com/
             if not guess.isalpha():
@@ -267,15 +270,19 @@ class Hangman:
         """
         while True:
             if self.start_game == "S":
+                self.clear()
                 self.check_guess()
                 break
             elif self.start_game == "I":
+                self.clear()
                 self.show_instructions()
                 break
             elif self.start_game == "E":
+                self.clear()
                 self.finish_game()
                 break
             else:
+                self.clear()
                 self.start_game = input(Fore.RED + "Please enter a valid value: \n").upper()
                 continue
                 
@@ -283,12 +290,15 @@ class Hangman:
     def check_yes_no(self):
         while True:
             if self.start_guess == "Y":
+                self.clear()
                 self.check_guess()
                 break
             elif self.start_guess == "N":
+                self.clear()
                 self.finish_game()
                 break
             else:
+                self.clear()
                 self.start_guess = input(Fore.RED + "Please enter a valid value: \n").upper()
                 continue
 
