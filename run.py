@@ -54,7 +54,6 @@ class Hangman:
     "DEVOPS": "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle.",
     "MICROSERVICES": "An architectural style that structures an application as a collection of small, independent services.",
     "CONTAINERIZATION": "The encapsulation of an application and its dependencies into a container for consistent deployment.",
-    "CLOUD COMPUTING": "The delivery of computing services, including storage, processing power, and more, over the internet.",
     "ALGORITHM": "A step-by-step procedure or formula for solving a problem or accomplishing a task in programming.",
     "CRYPTOGRAPHY": "The practice and study of techniques for secure communication in the presence of third parties."
 }
