@@ -69,3 +69,44 @@ The player has 6 attempts to fail. If they don't guess the word, the man is bein
 
 ![Screenshot of the goodbye message](media/goodbye.png)
 
+### Future Features
+
++ Allow the player to choose a topic and generate words accoringly
++ Allow the player to exit/restart the game in the middle of the game too
+
+## Data Mode and Libraries
+The game has one class names Hangman. All the variables are declared in the class. The ones which nedded to have access from more than 2 function are declared in __init__(), the others are decalred locally.
+Mostly each function does one thing to make it easier to maintain.
+For cleanint the terminal to make the reading easier has been used os and for the colors had been installed Colorama
+
+## Testing
+The game has been tested manually by me and friends to make sure that all the validations work as expected.
++ It had been playes multipule times to make sure that the game restarts and resets every time
++ Tested with non valid input to see if it gives the feedback and continues the program without crushing or ending up in an infinite loop
++ The game works on GoogleChrome, Mozilla, Microsoft Edge, however it has a problem with Safari.
+
+## Bugs
+### Solved Bugs
+
+### Remaining Bugs
++ It was not possible to make it work on Safari browser.
+
+## Deployment
+The project had been deployed by usin Code Institute's mock terminal for Heroku.
+Before the deployment colorama has been installed to be able to use in Heroku also.
+It had been installed using the command in the terminal "pip3 freeze > requirements.txt"
+
+The steps for deployment were following:
+  + Log in to Heroku
+  + Create a new app in Heroku
+  ![Create APP](media/app.png)
+  + Name the app and choose the relevant location
+  ![Name App](media/name-app.png)
+  + Go to settings
+  + Add buildpacks, first Python and next node.js
+  ![Add builpacks](media/builpack.png)
+  + Go to deploy
+  + Choose a deployment method GitHub
+  + Connect to the repository
+  + Enable Automatic Deploys to update the project along the coding
+  ![Deployment](media/deployment.png)
