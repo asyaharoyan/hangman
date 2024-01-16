@@ -239,7 +239,7 @@ class Hangman:
         print(Fore.GREEN + """
         The computer is going to choose a random word.
         You need to guess the letter.
-        You have 6 chances to fail.
+        You have 6 chances to try.
         You can not guess the same letter 2 times.
         If you do not guess the word, the man will be hanged :(
         --------------------------------------------------------
@@ -319,15 +319,15 @@ class Hangman:
                                 self.current_guess[word_index * 2 + 1:])
 
                 # Congradulate the player and continue the game
-                # self.description = Hangman.words[self.word]
                 print(Fore.GREEN + "Correct guess! ", self.current_guess, "\n")
+                print(Fore.CYAN + self.description)
                 self.used_letters.append(guess)
             else:
                 self.used_letters.append(guess)
                 wrong += 1
-                # self.description = Hangman.words[self.word]
                 print(
                     Fore.RED + "Ow! You guessed wrong. Pick another letter!\n")
+                print(Fore.CYAN + self.description)
                 continue
 
         # checking if there are no _, then the player guessed the word
@@ -423,6 +423,7 @@ class Hangman:
             elif self.start_guess == "N":
                 self.clear()
                 self.finish_game()
+                break
             else:
                 self.clear()
                 self.start_guess = input(

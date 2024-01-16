@@ -88,8 +88,16 @@ The game has been tested manually by me and friends to make sure that all the va
 ## Bugs
 ### Solved Bugs
 
++ Most of the errors were related long lines.
+
+![Screenshot of the bugs](media/errors.png)
+
+All of the has been fixed.
+
+![Scrrenshot of the clean code](media/no-errors.png)
+
 ### Remaining Bugs
-+ It was not possible to make it work on Safari browser.
++ NONE
 
 ## Deployment
 The project had been deployed by usin Code Institute's mock terminal for Heroku.
