@@ -288,7 +288,7 @@ class Hangman:
             print("The word is ", self.current_guess, "\n")
             guess = input(Fore.BLUE + "Please guess a letter:  ").upper()
             self.clear()
-            # check if the input is a letter.
+
             # The line of the code is taken from
             # https://codereview.stackexchange.com/
             if not guess.isalpha():
@@ -438,7 +438,6 @@ class Hangman:
         """
         self.name_input()
         self.welcome()
-
 
 game = Hangman()
 game.start()

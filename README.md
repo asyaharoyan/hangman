@@ -99,6 +99,16 @@ All of the has been fixed.
 ### Remaining Bugs
 + NONE
 
+### To check all the validations in the code try:
+ + Input a number with name or anything which is not a letter
+ + Input just a one letter
+ + Try to input any other letter than beeing asked to start/restart the game
+ + Try to guess the same letter twice
+ + Try to guess anything else which is not a letter
+ + Guess 2 letters instead of one
+
+ The game gives a responce accordingly to help the user through the game.
+
 ## Deployment
 The project had been deployed by usin Code Institute's mock terminal for Heroku.
 Before the deployment colorama has been installed to be able to use in Heroku also.
