@@ -318,7 +318,6 @@ class Hangman:
                                 guess_word +
                                 self.current_guess[word_index * 2 + 1:])
 
-                # Congradulate the player and continue the game
                 print(Fore.GREEN + "Correct guess! ", self.current_guess, "\n")
                 print(Fore.CYAN + self.description)
                 self.used_letters.append(guess)
