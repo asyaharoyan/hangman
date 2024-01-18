@@ -279,7 +279,7 @@ class Hangman:
         print(Fore.CYAN + self.description)
         # local variable to keep track on wrong answers
         wrong = 0
-        # Loop the function untill the game is over.
+
         while wrong < len(self.hangman) - 1 and "_" in self.current_guess:
             print(self.hangman[wrong])
             print(
@@ -438,6 +438,7 @@ class Hangman:
         """
         self.name_input()
         self.welcome()
+
 
 game = Hangman()
 game.start()

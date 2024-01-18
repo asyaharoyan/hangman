@@ -1,7 +1,7 @@
 # HANGMAN FOR PROGRAMMERS
 
 Hangman for programmers is a terminal game done by using Python.
-The player has 6 attempts to guess the word. With each word there is a shoer introduction to help the player to guess the right letters.
+The player has 6 attempts to guess the word. With each word, there is a short introduction to help the player to guess the right letters.
 
 Here is the live version of the game: 
 [HANGMAN FOR PROGRAMMERS](https://hangman-for-programmers-1e8bf1b491a5.herokuapp.com/)
@@ -10,18 +10,22 @@ Here is the live version of the game:
 
 ## How to play
 
-Hangman for programmers is a game based on the classic hangman game. 
+Hangman for programmers is a game based on the classic Hangman game. 
 
-The words are programming related. Each word has a short description to help the player to guess. 
+The words are programming-related. Each word has a short description to help the player to guess. 
 
 The player has 6 attempts to fail. If they don't guess the word, the man is being hanged.
 
 ## Features
+
+To make the coding easier, I used Lucid.app to draw the functions I want the game to have.
+
+![Screenshot of the game map](media/game-map.png)
 ### Existing Features
 
 + Name validation
-  + It has a function which validates the name, so it includes only letters and in at least 2 characters long
-  + It gives different feedbacks depending on the input
+  + It has a function which validates the name, so it includes only letters and is at least 2 characters long
+  + It gives different feedback depending on the input
 
 ![Screenshot of the name validation](media/name-validation.png)
 
@@ -34,19 +38,19 @@ The player has 6 attempts to fail. If they don't guess the word, the man is bein
 
 ![Screenshot of the validation](media/validate-input.png)
 
-  + Depending on the input is starts the game, finishes or shows instructions and asks if the player wants to start th game
+  + Depending on the input is starts the game, finishes or shows instructions and asks if the player wants to start the game
 
 ![Screenshot of instructions](media/show-instructions.png)
 
 + Random word generation
   + The computer generates a random word
-  + The playes sees only "_" and it counts the length of the word
+  + The player sees only "_" and it counts the length of the word
   + It shows a short description of the word to help the player
 
 ![Screenshot of the start game](media/start-game.png)
 
 + Validate input and check the guess
-  + If the user guesses wrong it gives a feedback and asks to continue the game
+  + If the user guesses wrong it gives feedback and asks to continue the game
 
 ![Screenshot of the wrong guess message](media/check-guess.png)
 
@@ -54,7 +58,7 @@ The player has 6 attempts to fail. If they don't guess the word, the man is bein
 
 ![Screenshot of the right guess](media/check-guess-right.png)
 
-+ Check if the user have already guessed the letter.
++ Check if the user has already guessed the letter.
   + It shows a message if the user has already guessed the letter, without counting it as a wrong guess.
 
 ![Screenshot of the input validation](media/validate-guess.png)
@@ -71,28 +75,28 @@ The player has 6 attempts to fail. If they don't guess the word, the man is bein
 
 ### Future Features
 
-+ Allow the player to choose a topic and generate words accoringly
++ Allow the player to choose a topic and generate words accordingly
 + Allow the player to exit/restart the game in the middle of the game too
 
 ## Data Mode and Libraries
-The game has one class names Hangman. All the variables are declared in the class. The ones which nedded to have access from more than 2 function are declared in __init__(), the others are decalred locally.
+The game has one class named Hangman. All the variables are declared in the class. The ones which needed to have access from more than 2 functions are declared in __init__(), and the others are declared locally.
 Mostly each function does one thing to make it easier to maintain.
-For cleanint the terminal to make the reading easier has been used os and for the colors had been installed Colorama
+For cleaning the terminal to make the reading easier has been used os and for the colors had been installed Colorama
 
 ## Testing
 The game has been tested manually by me and friends to make sure that all the validations work as expected.
-+ It had been playes multipule times to make sure that the game restarts and resets every time
-+ Tested with non valid input to see if it gives the feedback and continues the program without crushing or ending up in an infinite loop
-+ The game works on GoogleChrome, Mozilla, Microsoft Edge, however it has a problem with Safari.
++ It had been played multiple times to make sure that the game restarts and resets every time
++ Tested with non-valid input to see if it gives the feedback and continues the program without crashing or ending up in an infinite loop
++ The game works on Google Chrome, Mozilla, and Microsoft Edge, however, it has a problem with Safari.
 
 ## Bugs
 ### Solved Bugs
 
-+ Most of the errors were related long lines.
++ Most of the errors were related to long lines.
 
 ![Screenshot of the bugs](media/errors.png)
 
-All of the has been fixed.
+All of them have been fixed.
 
 ![Scrrenshot of the clean code](media/no-errors.png)
 
@@ -100,31 +104,31 @@ All of the has been fixed.
 + NONE
 
 ### To check all the validations in the code try:
- + Input a number with name or anything which is not a letter
+ + Input a number with a name or anything which is not a letter
  + Input just a one letter
- + Try to input any other letter than beeing asked to start/restart the game
+ + Try to input any other letter than being asked to start/restart the game
  + Try to guess the same letter twice
  + Try to guess anything else which is not a letter
  + Guess 2 letters instead of one
 
- The game gives a responce accordingly to help the user through the game.
+ The game gives a response accordingly to help the user through the game.
 
 ## Deployment
-The project had been deployed by usin Code Institute's mock terminal for Heroku.
-Before the deployment colorama has been installed to be able to use in Heroku also.
+The project was deployed by using Code Institute's mock terminal for Heroku.
+Before the deployment Colorama has been installed to be able to use in Heroku also.
 It had been installed using the command in the terminal "pip3 freeze > requirements.txt"
 
-The steps for deployment were following:
+The steps for deployment were the following:
   + Log in to Heroku
   + Create a new app in Heroku
   ![Create APP](media/app.png)
   + Name the app and choose the relevant location
   ![Name App](media/name-app.png)
   + Go to settings
-  + Add buildpacks, first Python and next node.js
+  + Add build packs, first Python and next node.js
   ![Add builpacks](media/builpack.png)
   + Go to deploy
   + Choose a deployment method GitHub
   + Connect to the repository
-  + Enable Automatic Deploys to update the project along the coding
+  + Enable Automatic Deploys to update the project along with the coding
   ![Deployment](media/deployment.png)
